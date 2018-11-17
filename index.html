@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- 1. 引入bootstrap的CSS -->
+    <!-- 注意引入bootstrap.css的外面有css文件夹并且旁边有fonts文件夹才能读取到里面图标 -->
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <!-- 2. 引入微金所官方定义的一些图标样式 -->
+    <link rel="stylesheet" type="text/css" href="css/font.css">
+    <!-- 3. 在主页中引入index.less -->
+    <link rel="stylesheet/less" type="text/css" href="less/index.less">
+    <!-- 4. 引入一个less.js编译less -->
+    <script src="lib/less/less.js"></script>
+</head>
+
+<body>
+    <!-- 推荐大容器使用id选择器 id样式的优先级高 方便覆盖bootstrap样式 而且是唯一 JS方便根据id去获取元素 -->
+    <!-- 头部区域 -->
+    <header id="header" class="hidden-xs hidden-sm">
+        <div class="container">
+            <div class="row text-center">
+                <!-- 在中屏幕以上栅格才需要生效 -->
+                <div class="col-md-2">
+                    <a href="#" title="">
+                        <!-- bootstrap官方图标 -->
+                        <!-- <i class="glyphicon glyphicon-phone"></i> -->
+                        <!-- 微金所官方图标 -->
+                        <i class="icon-mobilephone"></i> 手机微金所
+                        <i class="glyphicon glyphicon-chevron-up"></i>
+                    </a>
+                </div>
+                <div class="col-md-5">
+                    <span>4006-89-4006（服务时间：9:00-21:00）</span>
+                </div>
+                <div class="col-md-2">
+                    <a href="#" title="">常见问题</a>
+                    <a href="#" title="">财富登录</a>
+                </div>
+                <div class="col-md-3">
+                    <!-- bootstrap样式不是在标签上的而是在类名上的 -->
+                    <a href="#" class="btn btn-danger btn-sm">免费注册</a>
+                    <a href="#" class="btn btn-link">登录</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- 导航区域 -->
+    <!-- 导航条组件 文档 》 组件 》 导航条 》 默认样式导航条 -->
+    <nav id="nav" class="navbar navbar-default">
+        <!-- 使用居中的容器 -->
+        <div class="container">
+            <!-- 导航条的头部 -->
+            <div class="navbar-header">
+                <!-- 移动端显示的按钮 -->
+                <!-- data-target="#bs-example-navbar-collapse-1" 控制要切换的导航条内容 -->
+                <!-- data-toggle="collapse" 控制是否开启collapse功能 -->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <i class="icon-icon"></i>
+                    <i class="icon-logo"></i>
+                </a>
+            </div>
+            <!-- 导航条的身体-->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <!-- sr-only aria role等这些都是盲人设备使用 屏幕阅读器 -->
+                    <li class="active"><a href="#">我要投资</a></li>
+                    <li><a href="#">我要借款</a></li>
+                    <li><a href="#">平台介绍</a></li>
+                    <li><a href="#">新手专区</a></li>
+                    <li><a href="#">最新动态</a></li>
+                    <li><a href="#">微论坛</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">个人中心</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <!-- 轮播图区域 -->
+    <section id="slide">
+        <!-- JS插件 》 Carousel 轮播图插件 -->
+        <!-- 轮播图大容器 -->
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- 轮播图的小圆点 -->
+            <ol class="carousel-indicators">
+                <!-- data属性在bootstrap中都是用来控制功能 -->
+                <!-- data-target 表示当前小圆点要控制的轮播图的大容器元素  id选择器-->
+                <!-- data-slide-to表示当前小圆点要控制第几张图切换 值是索引从0开始-->
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+            </ol>
+            <!-- 轮播图的所有轮播图项 -->
+            <div class="carousel-inner" role="listbox">
+                <!-- 每个item就是每一个轮播图项 -->
+                <div class="item active">
+                    <img src="img/slide_01_2000x410.jpg" alt="...">
+                    <!-- 轮播图的标题  -->
+                    <!-- <div class="carousel-caption">
+                        ...
+                    </div> -->
+                </div>
+                <div class="item">
+                    <img src="img/slide_02_2000x410.jpg" alt="...">
+                </div>
+                <div class="item">
+                    <img src="img/slide_03_2000x410.jpg" alt="...">
+                </div>
+                <div class="item">
+                    <img src="img/slide_04_2000x410.jpg" alt="...">
+                </div>
+            </div>
+            <!-- 控制器 左右的控制按钮 -->
+            <!-- href也是用来指定当前要控制的轮播图容器 作用和data-target是一样的 -->
+            <!-- data-slide 控制切换到上一张还是下一张 -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <!-- 字体图标 bootstrap官方的图标 -->
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            </a>
+        </div>
+    </section>
+    <!-- 特色介绍区域 -->
+    <section id="feature" class="hidden-xs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="media">
+                    		<a href="#">
+	                        <div class="media-left">                         
+	                              <i class="icon-meiyuan"></i>                            
+	                        </div>
+	                        <div class="media-body">
+	                            <h4 class="media-heading">支付交易保障</h4>
+	                            <p>银联支付全程保障财产安全</p>
+	                        </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="media">
+                    		<a href="#">
+	                        <div class="media-left">                         
+	                              <i class="icon-meiyuan"></i>                            
+	                        </div>
+	                        <div class="media-body">
+	                            <h4 class="media-heading">支付交易保障</h4>
+	                            <p>银联支付全程保障财产安全</p>
+	                        </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="media">
+                    		<a href="#">
+	                        <div class="media-left">                         
+	                              <i class="icon-meiyuan"></i>                            
+	                        </div>
+	                        <div class="media-body">
+	                            <h4 class="media-heading">支付交易保障</h4>
+	                            <p>银联支付全程保障财产安全</p>
+	                        </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="media">
+                    		<a href="#">
+	                        <div class="media-left">                         
+	                              <i class="icon-meiyuan"></i>                            
+	                        </div>
+	                        <div class="media-body">
+	                            <h4 class="media-heading">支付交易保障</h4>
+	                            <p>银联支付全程保障财产安全</p>
+	                        </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="media">
+                    		<a href="#">
+	                        <div class="media-left">                         
+	                              <i class="icon-meiyuan"></i>                            
+	                        </div>
+	                        <div class="media-body">
+	                            <h4 class="media-heading">支付交易保障</h4>
+	                            <p>银联支付全程保障财产安全</p>
+	                        </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="media">
+                    		<a href="#">
+	                        <div class="media-left">                         
+	                              <i class="icon-meiyuan"></i>                            
+	                        </div>
+	                        <div class="media-body">
+	                            <h4 class="media-heading">支付交易保障</h4>
+	                            <p>银联支付全程保障财产安全</p>
+	                        </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 立即预约区域 -->
+    <section id="booking">
+    		<div class="container">
+    			<!-- 使用全局CSS样式 》 辅助类 》 快速浮动 -->
+    			<div class="pull-left">
+    				<!-- 使用全局CSS样式 》 辅助类 》 情景文本颜色 -->
+    				<i class="icon-naozhong"></i>现在有<span class="text-danger">458</span>人在排队，累计预约交易成功<span class="text-danger">7409</span>次。 什么是预约投标？ <a href="#" title="" class="text-danger">立即预约</a>
+    			</div>
+    			<div class="pull-right">
+    				<a href="#" title=""><i class="icon-video"></i>微金所企业宣传片</a>
+    			</div>
+    		</div>
+    </section>
+    <!-- 全部新闻区域 -->
+    <section id="news"></section>
+    <!-- 底部合作伙伴区域 -->
+    <footer id="partner"></footer>
+    <!-- 2. 引入jquery -->
+    <script src="lib/jquery/jquery.js"></script>
+    <!-- 3. 引入bootstrap的js -->
+    <script src="lib/bootstrap/js/bootstrap.js"></script>
+</body>
+
+</html>
